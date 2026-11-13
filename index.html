@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nasgor ortega - Web e-commerce dengan HTML, CSS, dan JavaScript murni.">
+    <title>Katalog | Nasgor ortega</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header / Navigasi Atas -->
+    <header class="kepala">
+        <div class="wadah kepala-isi">
+            <a href="#/" class="logo" aria-label="Nasgor ortega, ke halaman katalog">
+                <img src="logo.PNG" alt="" width="44" height="44">
+                <span class="logo-nama">Nasgor ortega</span>
+            </a>
+
+            <form class="cari" id="form-cari" role="search">
+                <label class="hanya-pembaca-layar" for="input-cari">cari menu</label>
+                <input type="search" id="input-cari" autocomplete="off" placeholder="Cari menu...">
+                <button type="submit" class="tombol-cari">
+                    <img src="cari.jfif" alt="" width="16" height="16">
+                    <span>cari</span>
+                </button>
+            </form>
+
+            <nav class="navigasi" aria-label="Navigasi utama">
+                <a href="#/keranjang" data-nav="keranjang" class="nav-keranjang">
+                    <img src="keranjang.jfif" alt="" width="20" height="20">
+                    <span>keranjang</span>
+                    <span class="lencana" id="lencana-keranjang">0</span>
+                </a>
+                <a href="#/login" data-nav="login" id="nav-masuk">Masuk</a>
+                <button type="button" id="tombol-keluar">keluar</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Utama (Semua halaman dibungkus di sini) -->
+    <main class="wadah">
+
+        <!-- ===== 1. HALAMAN LOGIN ===== -->
+        <section id="halaman-login">
+            <div class="masuk">
+                <div class="masuk-visual">
+                    <img src="logo.PNG" alt="Nasgor ortega" width="200" height="200">
+                </div>
+                <form class="masuk-form" id="form-login">
+                    <img class="masuk-logo" src="logo.PNG" alt="Nasgor ortega" width="72" height="72">
+                    <h1>Selamat Datang</h1>
+                    <p class="masuk-info">Masuk ke akunmu untuk melanjutkan.</p>
+
+                    <div class="kolom-isian">
+                        <label for="isian-username">Username</label>
+                        <input type="text" id="isian-username" autocomplete="username" required>
+                        <p class="pesan-galat">Username wajib diisi.</p>
+                    </div>
+
+                    <div class="kolom-isian">
+                        <label for="isian-password">Password</label>
+                        <input type="password" id="isian-password" autocomplete="current-password" required>
+                        <p class="pesan-galat">Password wajib diisi.</p>
+                        <p class="pesan-galat" id="login-salah" hidden>Username atau password salah (Gunakan: user / 1234).</p>
+                    </div>
+
+                    <button type="submit" class="tombol tombol-utama tombol-lebar tombol-kirim">Masuk</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ===== 2. HALAMAN KATALOG ===== -->
+        <section id="halaman-katalog" hidden>
+            <h1 class="hanya-pembaca-layar">Katalog menu Nasgor ortega</h1>
+
+            <div class="tata-katalog">
+                <aside class="sisi" aria-label="kategori menu">
+                    <h2 class="sisi judul">
+                        <img src="asset/titik.png" alt="" width="16" height="16">
+                        kategori menu
+                    </h2>
+                    <div class="kategori">
+                        <label class="sisi-item"><input type="radio" name="kategori" value="semua" checked><span>Semua menu</span></label>
+                        <label class="sisi-item"><input type="radio" name="kategori" value="Makanan"><span>Makanan</span></label>
+                        <label class="sisi-item"><input type="radio" name="kategori" value="Minuman"><span>Minuman</span></label>
+                    </div>
+                </aside>
+
+                <div class="hasil">
+                    <div class="grid-produk" id="grid-produk">
+                        <article class="kartu" data-id="1" data-nama="Nasi goreng" data-kategori="Makanan" data-harga="12000" data-deskripsi="ayam bagian paha yang sangat juicy">
+                            <a class="kartu-tautan" href="#/detail/1">
+                                <div class="kartu-gambar">
+                                    <div class="kartu-bingkai bingkai-foto">
+                                        <img class="foto" src="nasi goreng.PNG" alt="nasi goreng">
+                                        <strong class="kartu-label label-foto">Nasi goreng</strong>
+                                    </div>
+                                </div>
+                                <div class="kartu-isi">
+                                    <h2 class="kartu-nama">Nasi goreng</h2>
+                                    <p class="kartu-catatan">lezat, gurih</p>
+                                </div>
+                            </a>
+                            <div class="kartu-bawah"><p class="harga">Rp12.000</p></div>
+                        </article>
+
+                        <article class="kartu" data-id="2" data-nama="Mi goreng" data-kategori="Makanan" data-harga="15000" data-deskripsi="ayam bagian dada dikombinasikan dengan saos keju dan chili level">
+                            <a class="kartu-tautan" href="#/detail/2">
+                                <div class="kartu-gambar">
+                                    <div class="kartu-bingkai bingkai-foto">
+                                        <img class="foto" src="mi goreng.PNG" alt="mi goreng">
+                                        <strong class="kartu-label label-foto">Mi goreng</strong>
+                                    </div>
+                                </div>
+                                <div class="kartu-isi">
+                                    <h2 class="kartu-nama">Mi goreng</h2>
+                                    <p class="kartu-catatan">lezat, gurih</p>
+                                </div>
+                            </a>
+                            <div class="kartu-bawah"><p class="harga">Rp15.000</p></div>
+                        </article>
+
+                        <article class="kartu" data-id="3" data-nama="Kwetiau goreng" data-kategori="Makanan" data-harga="10000" data-deskripsi="olahan ayam tanpa tulang yang sangat enak dan mengenyangkan">
+                            <a class="kartu-tautan" href="#/detail/3">
+                                <div class="kartu-gambar">
+                                    <div class="kartu-bingkai bingkai-foto">
+                                        <img class="foto" src="kwetiau.PNG" alt="kwetiau goreng">
+                                        <strong class="kartu-label label-foto">Kwetiau goreng</strong>
+                                    </div>
+                                </div>
+                                <div class="kartu-isi">
+                                    <h2 class="kartu-nama">Kwetiau goreng</h2>
+                                    <p class="kartu-catatan">lezat, gurih</p>
+                                </div>
+                            </a>
+                            <div class="kartu-bawah"><p class="harga">Rp10.000</p></div>
+                        </article>
+
+                        <article class="kartu" data-id="4" data-nama="Es teh" data-kategori="Minuman" data-harga="4000" data-deskripsi="teh asli yang sangat menyegarkan">
+                            <a class="kartu-tautan" href="#/detail/4">
+                                <div class="kartu-gambar">
+                                    <div class="kartu-bingkai bingkai-foto">
+                                        <img class="foto" src="es teh.jpg" alt="es teh">
+                                        <strong class="kartu-label label-foto">Es teh</strong>
+                                    </div>
+                                </div>
+                                <div class="kartu-isi">
+                                    <h2 class="kartu-nama">Es teh</h2>
+                                    <p class="kartu-catatan">segar, menyegarkan</p>
+                                </div>
+                            </a>
+                            <div class="kartu-bawah"><p class="harga">Rp4.000</p></div>
+                        </article>
+
+                        
+                    </div>
+                    <p class="kosong" id="katalog-kosong">menu tidak ditemukan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. HALAMAN DETAIL ===== -->
+        <section id="halaman-detail" hidden>
+            <a class="tautan-kembali" href="#/">Kembali ke katalog</a>
+            <a class="kosong" id="detail-tidak-ada" hidden>Menu tidak ditemukan.</a>
+
+            <article class="detail" id="isi-detail">
+                <div class="detail-gambar">
+                    <img class="foto" id="detail-gambar" src="logo.PNG" alt="">
+                </div>
+                <div class="detail-info">
+                    <h1 id="detail-nama"></h1>
+                    <p class="detail-deskripsi" id="detail-deskripsi"></p>
+
+                    <div class="kasir" role="group" aria-label="Rincian pesanan">
+                        <div class="kasir-judul">
+                            <span>Item</span>
+                            <span>Jumlah</span>
+                            <span>Subtotal</span>
+                        </div>
+                        <div class="kasir-baris">
+                            <div class="kasir-info">
+                                <span class="kasir-nama" id="kasir-nama"></span>
+                                <span class="kasir-harga" id="kasir-harga"></span>
+                            </div>
+                            <div class="kasir-jumlah">
+                                <button type="button" id="tombol-kurang" aria-label="Kurangi jumlah">-</button>
+                                <label class="hanya-pembaca-layar" for="isian-jumlah">Jumlah</label>
+                                <input type="number" id="isian-jumlah" min="1" value="1">
+                                <button type="button" id="tombol-tambah" aria-label="Tambah jumlah">+</button>
+                            </div>
+                            <span class="kasir-subtotal total-teks"></span>
+                        </div>
+                        <div class="kasir-total">
+                            <span>Total bayar</span>
+                            <strong class="total-teks"></strong>
+                        </div>
+                    </div>
+
+                    <div class="detail-aksi">
+                        <button type="button" class="tombol-keranjang" id="tombol-keranjang">Tambah ke keranjang</button>
+                        <button type="button" class="tombol-pesan" id="tombol-pesan">
+                            <span class="total-teks"></span>
+                            <span>Pesan sekarang</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ===== 4. HALAMAN KERANJANG ===== -->
+        <section id="halaman-keranjang" hidden>
+            <h1 class="judul-halaman">Keranjang</h1>
+            <div class="kosong" id="keranjang-kosong">
+                <p>Keranjang masih kosong.</p>
+                <a class="tombol tombol-utama" href="#/">Mulai belanja</a>
+            </div>
+            <div class="dua-kolom" id="keranjang-isi">
+                <div class="daftar-keranjang" id="daftar-keranjang"></div>
+                <aside class="struk struk-menempel" aria-label="Ringkasan keranjang">
+                    <h2>Ringkasan</h2>
+                    <div class="struk-baris"><span>Jumlah barang</span><span id="keranjang-jumlah">0</span></div>
+                    <div class="struk-baris struk-total"><span>Total harga</span><span id="keranjang-subtotal">Rp0</span></div>
+                    <div class="struk-aksi">
+                        <a class="tombol tombol-utama" href="#/checkout">Lanjut ke checkout</a>
+                        <a class="tombol" href="#/">Lanjut belanja</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ===== 5. HALAMAN CHECKOUT ===== -->
+        <section id="halaman-checkout" hidden>
+            <a class="tautan-kembali" href="#/keranjang">Kembali ke keranjang</a>
+            <h1 class="judul-halaman">Checkout</h1>
+
+            <div class="dua-kolom">
+                <form id="form-checkout">
+                    <section class="kotak" aria-labelledby="judul-data">
+                        <h2 class="kotak-judul" id="judul-data"><span class="kotak-nomor">1.</span>Kontak pemesan</h2>
+                        <div class="baris-isian">
+                            <div class="kolom-isian">
+                                <label for="isian-nama">Nama lengkap</label>
+                                <input type="text" id="isian-nama" autocomplete="name" required>
+                                <p class="pesan-galat">Nama wajib diisi.</p>
+                            </div>
+                            <div class="kolom-isian">
+                                <label for="isian-hp">Nomor HP</label>
+                                <input type="tel" id="isian-hp" autocomplete="tel" required>
+                                <p class="pesan-galat">Nomor HP wajib diisi.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="kotak" aria-labelledby="judul-kirim">
+                        <h2 class="kotak-judul" id="judul-kirim"><span class="kotak-nomor">2.</span>Alamat pengiriman</h2>
+                        <div class="kolom-isian">
+                            <label for="isian-alamat">Alamat lengkap</label>
+                            <textarea id="isian-alamat" rows="3" required></textarea>
+                            <p class="pesan-galat">Alamat wajib diisi.</p>
+                        </div>
+                        <div class="kolom-isian">
+                            <label for="isian-kota">Kecamatan / kota</label>
+                            <input type="text" id="isian-kota" required>
+                            <p class="pesan-galat">Kota wajib diisi.</p>
+                        </div>
+                    </section>
+
+                    <section class="kotak" aria-labelledby="judul-bayar">
+                        <h2 class="kotak-judul" id="judul-bayar"><span class="kotak-nomor">3.</span>Pembayaran</h2>
+                        <div class="kolom-isian">
+                            <label for="isian-pembayaran">Metode pembayaran</label>
+                            <select id="isian-pembayaran" required>
+                                <option value="">Pilih metode pembayaran</option>
+                                <option value="Tunai di kedai">Tunai di kedai</option>
+                                <option value="QRIS">QRIS</option>
+                                <option value="Transfer bank">Transfer bank</option>
+                            </select>
+                            <p class="pesan-galat">Pilih metode pembayaran.</p>
+                        </div>
+                    </section>
+                </form>
+
+                <aside class="struk struk-menempel" aria-label="Ringkasan pesanan">
+                    <h2>Ringkasan pesanan</h2>
+                    <div class="daftar-ringkas" id="ringkasan-checkout"></div>
+                    <div class="struk-baris struk-total"><span>Total bayar</span><span id="checkout-total"></span></div>
+                    <button type="submit" form="form-checkout" class="tombol tombol-utama tombol-lebar tombol-kirim">Buat pesanan</button>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ===== 6. HALAMAN SUKSES ===== -->
+        <section id="halaman-sukses" hidden>
+            <p class="kosong" id="sukses-tidak-ada" hidden>
+                Pesanan tidak ditemukan. <a href="#/">Kembali ke katalog</a>
+            </p>
+            <div class="sukses" id="isi-sukses">
+                <div class="sukses-ikon" aria-hidden="true">🎉</div>
+                <h1>Pesanan berhasil dibuat!</h1>
+                <p id="sukses-pemesan"></p>
+                <div class="struk">
+                    <div class="daftar-ringkas" id="sukses-daftar"></div>
+                    <div class="struk-baris struk-total"><span>Total bayar</span><span id="sukses-total"></span></div>
+                </div>
+                <div class="sukses-tombol">
+                    <a class="tombol tombol-utama" href="#/">Pesan lagi</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Template Baris Keranjang -->
+    <template id="templat-baris">
+        <article class="baris-keranjang">
+            <div class="baris-gambar"><img class="foto" src="" alt=""></div>
+            <div class="baris-info">
+                <a href="#/"></a>
+                <p></p>
+            </div>
+            <div class="baris-aksi">
+                <div class="pengatur-jumlah">
+                    <button type="button" data-aksi="tambah" aria-label="tambah jumlah">+</button>
+                    <span class="jumlah"></span>
+                    <button type="button" data-aksi="kurang" aria-label="kurangi jumlah">-</button>
+                </div>
+                <p class="baris-subtotal"></p>
+                <button type="button" class="tombol teks" data-aksi="hapus">Hapus</button>
+            </div>
+        </article>
+    </template>
+
+    <!-- Footer -->
+    <footer class="kaki">
+        <div class="wadah">
+            <div class="kaki-kolom">
+                <section>
+                    <p class="kaki-logo">
+                        <img src="logo.PNG" alt="" width="40" height="40">
+                        Nasi goreng ortega
+                    </p>
+                    <p>Sedia berbagai macam makanan rumahan yang enak</p>
+                </section>
+                <section>
+                    <h2 class="kaki-judul">jam buka &amp; kontak</h2>
+                    <dl class="kaki-daftar">
+                        <div>
+                            <dt>senin-minggu</dt>
+                            <dd>09.00-21.00 WIB</dd>
+                        </div>
+                    </dl>
+                    <p class="kaki-info">Pesan online, ambil di toko</p>
+                    <p class="kaki-info">Instagram: @nasigorengortega</p>
+                </section>
+                <section>
+                    <h2 class="kaki-judul">Metode pembayaran</h2>
+                    <p class="kaki-info">Menerima pembayaran tunai &amp; digital</p>
+                </section>
+            </div>
+            <p class="kaki-hakcipta">2026@ukkpplg</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
